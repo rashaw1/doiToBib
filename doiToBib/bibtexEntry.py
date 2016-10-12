@@ -1,6 +1,7 @@
 # Defines a class for containing and outputting a bibtex entry for an article
 #
 # October 2016 Robert Shaw
+import sys
 
 class BibEntry:
     """A bibtex entry object for an article"""
@@ -20,6 +21,8 @@ class BibEntry:
         self.volume = volume
     
     def ToString(self):
+        reload(sys)
+        sys.setdefaultencoding("utf-8")
         output = "@Article{" + self.reference + ",\n"
         output += "author = {" + self.author + "},\n"
         output += "title = {" + self.title + "},\n"
